@@ -1,0 +1,69 @@
+html,
+body,
+.holster {
+   height: 100%;
+}
+.holster {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   flex-flow: column nowrap;
+   font-family: monospace;
+}
+.slider__container {
+   display: flex;
+   overflow: auto;
+   outline: 1px dashed lightgray;
+   flex: none;
+   width: 100%;
+   height: 20rem;
+   flex-flow: row nowrap;
+   scroll-snap-type: x mandatory;
+}
+.slider__item {
+   scroll-snap-align: center;
+   line-height: 20rem;
+   font-size: 64px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 1rem;
+   line-height: 128px;
+   font-size: 64px;
+   width: 100%;
+   flex: none;
+}
+.holster h1 {
+   font-size: 32px;
+}
+.img-fluid {
+   width: 100%;
+   height: 100%;
+}
+
+.slider__container > .slider__item:nth-child(even) {
+   /* background-image: url("./assets/images/pexels-leif-bergerson-9545903\ \(1\).jpg");
+   background-position: center; 
+   background-repeat: no-repeat; 
+   background-size: cover;  */
+   background-image: conic-gradient(
+      rgb(112, 202, 38),
+      rgb(253, 253, 104),
+      rgb(112, 202, 38)
+   );
+   background-color: #cccccc;
+}
+
+.slider__container > .slider__item:nth-child(odd) {
+   /* background-image: url("./assets/images/pexels-kaboompics-com-6130.jpg");
+   background-position: bottom; Center the image 
+   background-repeat: no-repeat;  Do not repeat the image 
+   background-size: cover; Resize the background image to cover the entire container */
+   background-image: conic-gradient(
+      rgb(38, 202, 202),
+      rgb(156, 104, 253),
+      rgb(38, 202, 202)
+   );
+   background-color: #cccccc;
+}

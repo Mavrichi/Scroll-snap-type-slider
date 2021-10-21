@@ -1,4 +1,10 @@
-/* setup */
+@import "./node_modules/include-media/dist/include-media"; /* setup */
+$breakpoints: (
+   phone: 320px,
+   tablet: 768px,
+   desktop: 1024px,
+);
+
 body,
 html,
 .holster {
@@ -20,6 +26,9 @@ button {
    transition: background 250ms ease-in-out, transform 150ms ease;
    -webkit-appearance: none;
    -moz-appearance: none;
+   @include media("<=tablet") {
+      visibility: hidden;
+   }
 }
 
 button:hover,
@@ -48,6 +57,9 @@ button:active {
    overflow: hidden;
    outline: 1px dashed lightgray;
    flex: none;
+   @include media("<=tablet") {
+      overflow: auto;
+   }
 }
 
 .container.x {

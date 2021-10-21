@@ -37,7 +37,6 @@ buttonsArray.map((e) => {
 let hideShowButtons = (currentSlide, numberOfSlides) => {
    let btnPrev = document.querySelector(".arrow__left");
    let btnNext = document.querySelector(".arrow__right");
-   console.log(numberOfSlides);
    btnPrev.classList.toggle("hidden", currentSlide == 0);
    btnNext.classList.toggle("hidden", currentSlide == numberOfSlides);
 

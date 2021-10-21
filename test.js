@@ -11,13 +11,11 @@ buttonsArray.map((e) => {
    e.addEventListener("click", (ev) => {
       let slider = document.querySelector(".container");
       let currentSlide = slider.dataset.currentslide;
-
+      let numberOfSlides = slider.childElementCount;
+      //let numberOfSlides = slider.dataset.numberofslides;
       let slideWidth = document.querySelector(".container > div").offsetWidth;
       let direction = ev.currentTarget.dataset.direction;
-      console.log({ direction }, { currentSlide }, { slider });
-      console.log({ slideWidth });
       if (direction == "right") {
-         console.log(slideWidth * currentSlide + slideWidth);
          container.scroll({
             left: slideWidth * currentSlide + slideWidth,
             top: 0,
@@ -32,12 +30,32 @@ buttonsArray.map((e) => {
          });
          slider.dataset.currentslide = parseInt(currentSlide) - 1;
       }
-      if (slider.dataset.currentslide != 0) {
-         if (
-            document.querySelector(".arrow__left").classList.contains("hidden")
-         ) {
-            document.querySelector(".arrow__left").classList.remove("hidden");
-         }
-      }
+      hideShowButtons(slider.dataset.currentslide, numberOfSlides - 1);
    });
 });
+
+let hideShowButtons = (currentSlide, numberOfSlides) => {
+   let btnPrev = document.querySelector(".arrow__left");
+   let btnNext = document.querySelector(".arrow__right");
+   console.log(numberOfSlides);
+   btnPrev.classList.toggle("hidden", currentSlide == 0);
+   btnNext.classList.toggle("hidden", currentSlide == numberOfSlides);
+
+   // if (currentSlide != 0 && currentSlide != 9) {
+   //    if (btnPrev.classList.contains("hidden")) {
+   //       btnPrev.classList.remove("hidden");
+   //    }
+   //    if (btnNext.classList.contains("hidden")) {
+   //       btnNext.classList.remove("hidden");
+   //    }
+   // }
+   // if (currentSlide == 9) {
+   //    if (!btnNext.classList.contains("hidden")) {
+   //       btnNext.classList.add("hidden");
+   //    }
+   // } else if (currentSlide == 0) {
+   //    if (!btnPrev.classList.contains("hidden")) {
+   //       btnPrev.classList.add("hidden");
+   //    }
+   // }
+};

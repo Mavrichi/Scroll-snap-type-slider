@@ -62,7 +62,7 @@ button:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow: auto;
+  overflow: hidden;
   outline: 1px dashed lightgray;
   -webkit-box-flex: 0;
       -ms-flex: none;
@@ -114,7 +114,7 @@ button:active {
 }
 
 .container__xl {
-  width: 40rem;
+  width: 20rem;
 }
 
 .x.container > div {
@@ -134,6 +134,6 @@ button:active {
 }
 
 .hidden {
-  display: none;
+  visibility: hidden;
 }
 /*# sourceMappingURL=test2.css.map */

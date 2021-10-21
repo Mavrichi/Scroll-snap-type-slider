@@ -7,91 +7,33 @@
       <title>Vite App</title>
    </head>
    <body>
-      <script type="module" src="/main.js"></script>
-      <a href="test.html" target="_blank">Test page</a>
+      <script type="module" src="/test.js"></script>
+
       <div class="centerIt">
-         <div class="holster">
-            <div class="container x mandatory-scroll-snapping">
-               <div class="slider__item">
-                  <!-- <img
-                     src="assets\images\pexels-kaboompics-com-6130.jpg"
-                     alt=""
-                     class="img-fluid"
-                  /> -->
-                  <h1>title 1</h1>
+         <div class="container__xl">
+            <div class="holster">
+               <button class="arrow__left hidden" data-direction="left">
+                  Prev
+               </button>
+               <div
+                  class="container x mandatory-scroll-snapping"
+                  dir="ltr"
+                  id="container"
+                  data-currentSlide="0"
+                  data-numberOfSlides="10"
+               >
+                  <div>item 1</div>
+                  <div>item 2</div>
+                  <div>item 3</div>
+                  <div>item 4</div>
+                  <div>item 5</div>
+                  <div>item 6</div>
+                  <div>item 7</div>
+                  <div>item 8</div>
+                  <div>item 9</div>
+                  <div>item 10</div>
                </div>
-               <div class="slider__item">
-                  <!-- <img
-                     src="assets\images/pexels-leif-bergerson-9545903 (1).jpg"
-                     alt=""
-                     class="img-fluid"
-                  /> -->
-                  <h1>title 2</h1>
-               </div>
-               <div class="slider__item">
-                  <!-- <img
-                     src="assets\images\pexels-kaboompics-com-6130.jpg"
-                     alt=""
-                     class="img-fluid"
-                  /> -->
-                  <h1>title 3</h1>
-               </div>
-               <div class="slider__item">
-                  <!-- <img
-                     src="assets\images/pexels-leif-bergerson-9545903 (1).jpg"
-                     alt=""
-                     class="img-fluid"
-                  /> -->
-                  <h1>title 4</h1>
-               </div>
-               <div class="slider__item">
-                  <!-- <img
-                     src="assets\images\pexels-kaboompics-com-6130.jpg"
-                     alt=""
-                     class="img-fluid"
-                  /> -->
-                  <h1>title 5</h1>
-               </div>
-               <div class="slider__item">
-                  <!-- <img
-                     src="assets\images/pexels-leif-bergerson-9545903 (1).jpg"
-                     alt=""
-                     class="img-fluid"
-                  /> -->
-                  <h1>title 6</h1>
-               </div>
-               <div class="slider__item">
-                  <!-- <img
-                     src="assets\images\pexels-kaboompics-com-6130.jpg"
-                     alt=""
-                     class="img-fluid"
-                  /> -->
-                  <h1>title 7</h1>
-               </div>
-               <div class="slider__item">
-                  <!-- <img
-                     src="assets\images/pexels-leif-bergerson-9545903 (1).jpg"
-                     alt=""
-                     class="img-fluid"
-                  /> -->
-                  <h1>title 8</h1>
-               </div>
-               <div class="slider__item">
-                  <!-- <img
-                     src="assets\images\pexels-kaboompics-com-6130.jpg"
-                     alt=""
-                     class="img-fluid"
-                  /> -->
-                  <h1>title 9</h1>
-               </div>
-               <div class="slider__item">
-                  <!-- <img
-                     src="assets\images/pexels-leif-bergerson-9545903 (1).jpg"
-                     alt=""
-                     class="img-fluid"
-                  /> -->
-                  <h1>title 10</h1>
-               </div>
+               <button class="arrow__right" data-direction="right">Next</button>
             </div>
          </div>
       </div>

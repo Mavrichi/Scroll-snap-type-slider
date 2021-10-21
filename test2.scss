@@ -45,7 +45,7 @@ button:active {
 
 .container {
    display: flex;
-   overflow: auto;
+   overflow: hidden;
    outline: 1px dashed lightgray;
    flex: none;
 }
@@ -77,7 +77,7 @@ button:active {
    flex: none;
 }
 .container__xl {
-   width: 40rem;
+   width: 20rem;
 }
 .x.container > div {
    line-height: 128px;
@@ -95,5 +95,5 @@ button:active {
    background-color: #87ccea;
 }
 .hidden {
-   display: none;
+   visibility: hidden;
 }

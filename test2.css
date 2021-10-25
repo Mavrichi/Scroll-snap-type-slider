@@ -64,36 +64,42 @@ button:active {
   font-family: monospace;
 }
 
-.container {
+.container.x::-webkit-scrollbar-thumb {
+  background: #000;
+}
+
+.container.x::-webkit-scrollbar {
+  margin-top: 10px;
+  width: 5px;
+  height: 8px;
+  background-color: #aaa;
+  /* or add it to the track */
+}
+
+.container.x {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   overflow: hidden;
-  outline: 1px dashed lightgray;
+  overflow-x: scroll;
+  overflow-y: hidden;
   -webkit-box-flex: 0;
       -ms-flex: none;
           flex: none;
-}
-
-@media (max-width: 768px) {
-  .container {
-    overflow: auto;
-  }
-}
-
-.container.x {
   width: 100%;
   height: 128px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-flow: row nowrap;
           flex-flow: row nowrap;
-}
-
-/* scroll-snap */
-.x.mandatory-scroll-snapping {
   -ms-scroll-snap-type: x mandatory;
       scroll-snap-type: x mandatory;
+}
+
+@media (max-width: 768px) {
+  .container.x {
+    overflow: auto;
+  }
 }
 
 .centerIt {
@@ -117,19 +123,20 @@ button:active {
   margin: auto auto;
 }
 
-.container > div {
+.container__xl {
+  width: 20rem;
+}
+
+.container__xxl {
+  width: 30rem;
+}
+
+.slider__item {
   text-align: center;
   scroll-snap-align: start;
   -webkit-box-flex: 0;
       -ms-flex: none;
           flex: none;
-}
-
-.container__xl {
-  width: 20rem;
-}
-
-.x.container > div {
   line-height: 128px;
   font-size: 64px;
   width: 100%;
@@ -147,5 +154,25 @@ button:active {
 
 .hidden {
   visibility: hidden;
+}
+
+.slider {
+  width: 100%;
+  height: 5px;
+  display: block;
+  background: #ccc;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.slider .bar {
+  width: 25%;
+  height: 5px;
+  background: #333;
+  border-radius: 5px;
+}
+
+#range {
+  width: 40rem;
 }
 /*# sourceMappingURL=test2.css.map */

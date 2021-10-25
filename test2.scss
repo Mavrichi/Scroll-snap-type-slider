@@ -52,26 +52,30 @@ button:active {
    font-family: monospace;
 }
 
-.container {
+.container.x::-webkit-scrollbar-thumb {
+   background: #000;
+}
+.container.x::-webkit-scrollbar {
+   margin-top: 10px;
+   width: 5px;
+   height: 8px;
+   background-color: #aaa; /* or add it to the track */
+}
+.container.x {
    display: flex;
    overflow: hidden;
-   outline: 1px dashed lightgray;
+   overflow-x: scroll;
+   overflow-y: hidden;
    flex: none;
    @include media("<=tablet") {
       overflow: auto;
    }
-}
-
-.container.x {
    width: 100%;
    height: 128px;
    flex-flow: row nowrap;
-}
-
-/* scroll-snap */
-.x.mandatory-scroll-snapping {
    scroll-snap-type: x mandatory;
 }
+
 .centerIt {
    width: 100%;
    display: flex;
@@ -83,21 +87,22 @@ button:active {
    height: 100%;
    margin: auto auto;
 }
-.container > div {
-   text-align: center;
-   scroll-snap-align: start;
-   flex: none;
-}
+
 .container__xl {
    width: 20rem;
 }
-.x.container > div {
+.container__xxl {
+   width: 30rem;
+}
+.slider__item {
+   text-align: center;
+   scroll-snap-align: start;
+   flex: none;
    line-height: 128px;
    font-size: 64px;
    width: 100%;
    height: 128px;
 }
-
 /* coloration */
 .container > div:nth-child(even) {
    background-color: #87ea87;
@@ -108,4 +113,22 @@ button:active {
 }
 .hidden {
    visibility: hidden;
+}
+.slider {
+   width: 100%;
+   height: 5px;
+   display: block;
+   background: #ccc;
+   margin-top: 10px;
+   border-radius: 5px;
+}
+
+.slider .bar {
+   width: 25%;
+   height: 5px;
+   background: #333;
+   border-radius: 5px;
+}
+#range {
+   width: 40rem;
 }

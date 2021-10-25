@@ -3,8 +3,11 @@ let containerGlobal = document.querySelector(".container");
 // container.addEventListener("scroll", (ev) => {
 //    console.log(ev);
 // });
+let sliderInput = document.getElementById("range");
+
 let buttons = document.querySelectorAll("button");
 var buttonsArray = Array.prototype.slice.call(buttons);
+
 buttonsArray.map((e) => {
    e.addEventListener("click", (ev) => {
       let slider = ev.currentTarget.parentNode.querySelector(".container");
@@ -27,6 +30,8 @@ buttonsArray.map((e) => {
          });
          slider.dataset.currentslide = parseInt(currentSlide) - 1;
       }
+      sliderInput.value =
+         (sliderInput.max / numberOfSlides) * slider.dataset.currentslide;
       hideShowButtons(
          slider.parentNode,
          slider.dataset.currentslide,
@@ -43,12 +48,12 @@ let hideShowButtons = (parentNode, currentSlide, numberOfSlides) => {
    let inputNumberOfSlides = parseInt(
       document.getElementById("NumberInput").dataset.numberofslides
    );
-   let newNumberOfSlides = numberOfSlides;
+   let newNumberOfSlides = numberOfSlides - 1;
    if (inputNumberOfSlides != 0) {
       let newNumberOfSlides = numberOfSlides - inputNumberOfSlides;
    }
    btnPrev.classList.toggle("hidden", currentSlide == 0);
-   btnNext.classList.toggle("hidden", currentSlide >= newNumberOfSlides);
+   btnNext.classList.toggle("hidden", currentSlide == newNumberOfSlides);
 };
 document.getElementById("NumberInput").addEventListener("change", (e) => {
    let slides = document
@@ -65,7 +70,6 @@ document.getElementById("NumberInput").addEventListener("change", (e) => {
          .setAttribute("data-numberOfSlides", numberOfSlidesShown);
    });
 });
-let sliderInput = document.getElementById("range");
 sliderInput.oninput = () => {
    let outputRange = document.getElementById("output");
    outputRange.innerHTML = sliderInput.value;
@@ -79,13 +83,26 @@ sliderInput.oninput = () => {
       top: 0,
       behavior: "smooth",
    });
-   slider.dataset.currentslide = Math.round(
+   slider.dataset.currentslide = Math.floor(
       (sliderInput.value * slideWidth - slideWidth) / 10 / slideWidth
    );
-   console.log(slider.parentNode, slider.dataset.currentslide, numberOfSlides);
+   console.log("current Slide : ", slider.dataset.currentslide);
    hideShowButtons(
       slider.parentNode,
       slider.dataset.currentslide,
       numberOfSlides
    );
 };
+
+// Set thumb width to a slide %
+document.addEventListener("DOMContentLoaded", (e) => {
+   let slider = document.getElementById("test");
+   let numberOfSlides = slider.childElementCount;
+   let slideWidth = slider.querySelector(".container > div").offsetWidth;
+   let rangeTotalWidth = sliderInput.offsetWidth;
+   let thumbWidth = rangeTotalWidth / (numberOfSlides - 1) + "px";
+   document
+      .querySelector(":root")
+      .style.setProperty("--rangeWidth", thumbWidth);
+   console.log("am facut width-ul : ", thumbWidth);
+});
